@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool isleap(int year)
+    {
+        if (year % 400 == 0) return true;
+        else if (year % 100 == 0) return false;
+        else if (year % 4 == 0) return true;
+        else return false;
+    }
+    int dayOfYear(string date) {
+        int l = stoi(date.substr(0, 4));
+        int m = stoi(date.substr(5, 2));
+        int n = stoi(date.substr(8));
+        bool a=isleap(l);
+        if(m==1) return n;
+        else if(m==2) return n+31;
+        if(a==1)
+        {
+            if(m==3) return 60+n;
+            else if(m==4) return 91+n;
+            else if(m==5) return 121+n;
+            else if(m==6) return 152+n;
+            else if(m==7) return 182+n;
+            else if(m==8) return 213+n;
+            else if(m==9) return 244+n;
+            else if(m==10) return 274+n;
+            else if(m==11) return 305+n;
+            else return 335+n;
+        }
+        else
+        {
+            if(m==3) return 59+n;
+            else if(m==4) return 90+n;
+            else if(m==5) return 120+n;
+            else if(m==6) return 151+n;
+            else if(m==7) return 181+n;
+            else if(m==8) return 212+n;
+            else if(m==9) return 243+n;
+            else if(m==10) return 273+n;
+            else if(m==11) return 304+n;
+            else return 334+n;
+        }
+    }
+};
